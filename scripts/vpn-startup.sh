@@ -31,11 +31,13 @@ if [ ! $? -eq 0 ]; then
     exit 5;
 fi
 
-expect /opt/scripts/vpn-protocol.expect
-
-if [ ! $? -eq 0 ]; then
-    exit 5;
-fi
+# This vpn-protocol script causes EOF errors when the container is restarted. I don't know what exactly is happening, so I can't fix this properly yet.
+# Todo: figure out what is going on and edit the script to fix it.
+#expect /opt/scripts/vpn-protocol.expect
+#
+#if [ ! $? -eq 0 ]; then
+#    exit 5;
+#fi
 
 expect /opt/scripts/vpn-port.expect
 
